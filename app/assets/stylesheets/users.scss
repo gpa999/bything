@@ -1,0 +1,31 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// login_form
+.sign-top {
+    font-size: 7vh;
+    text-align: center;
+    margin-top: 20vh;
+    font-family: 'Josef';
+    color: #4b578f;
+}
+.sign-post {
+    display: block;
+}
+.login-button {
+    margin-top: 12vh;
+    margin-left: 11vw;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: #4b578f;
+    width: 78vw;
+    height: 4.5vh;
+    border-radius: 0.25em;
+    font-size: 2.8vh;
+}
+.signup-button {
+    text-align: center;
+    margin-top: 4vh;
+    font-size: 2vh;
+}
