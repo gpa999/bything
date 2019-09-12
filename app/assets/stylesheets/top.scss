@@ -1,0 +1,41 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//top.index
+#header {
+    width: 100vw;
+    border-bottom: solid 3px #d0d0d0;
+    height: 6.5vh;
+    position:fixed;
+    background:#ffffff;
+    z-index: 2;
+}
+
+.header-top {
+    font-size: 5vh;
+    text-align: center;
+    font-family: 'Josef';
+    color: #4b578f;
+    margin-top: 0.2vh;
+    z-index: 1;
+}
+#contents {
+    overflow: auto;
+    position:fixed;
+    height: 92vh;
+    width: 100vw;
+    margin-top:0vh;
+}
+.space {
+    height: 6.5vh;
+}
+#footer {
+    border-top: solid 3px #d0d0d0;
+    height: 8vh;
+    width: 100vw;
+    position:fixed;
+    background:#ffffff;
+    z-index: 1;
+    margin-top: 92vh;
+}

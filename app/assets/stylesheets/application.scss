@@ -26,3 +26,60 @@
     font-family: 'Josef';
     color: #4b578f;
 }
+.login-contents {
+    text-align: center;
+    margin-top: 8vh;
+}
+.login-form {
+    width: 60vw;
+    height: 4vh;
+    font-size: 1.5vh;
+    border: solid 1px #e0e0e0;
+    margin-top: 1vh;
+    border-radius: 0.25em;
+}
+.login-input {
+    margin-top: 4vh;
+    width: 60vw;
+    height: 4vh;
+    background:#4b578f;
+    color: #ffffff;
+    font-size: 2vh;
+    border-radius: 0.5em;
+}
+.login-sub {
+    margin-top: 3vh;
+}
+//regislations.new
+.signup-top {
+    font-size: 7vh;
+    text-align: center;
+    margin-top: 8vh;
+    font-family: 'Josef';
+    color: #4b578f;
+}
+.signup-contents {
+    text-align: center;
+    margin-top: 8vh;
+}
+.signup-form {
+    width: 60vw;
+    height: 4vh;
+    font-size: 1.5vh;
+    border: solid 1px #e0e0e0;
+    margin-top: 1vh;
+    border-radius: 0.25em;
+}
+.signup-input {
+    margin-top: 4vh;
+    width: 60vw;
+    height: 4vh;
+    background:#4b578f;
+    color: #ffffff;
+    font-size: 2vh;
+    border-radius: 0.5em;
+}
+//shared.link
+.link-btn {
+    font-size: 1.5vh;
+}
