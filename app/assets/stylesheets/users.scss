@@ -29,3 +29,189 @@
     margin-top: 4vh;
     font-size: 2vh;
 }
+
+//user.show
+.user-top {
+    text-align: center;
+    font-size: 2.5vh;
+    margin-top: 2vh;
+    color: #4b578f;
+}
+.fa-user-plus-1 {
+    padding-left: 3vh;
+    padding-top: 2.5vh;
+    font-size: 5vh;
+    color: #999999;
+    border: solid 2px #999999;
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    text-decoration: none;
+}
+.user-image {
+    margin-left: 4vw;
+    margin-top: 4vh;
+}
+.user-real-image {
+    background-size: cover;
+    width: 11vh;
+    height: 10.5vh;
+    border-radius: 50%;
+}
+.user-profile {
+    display: inline-block;
+    vertical-align: top;
+}
+.user-profile h1 {
+    font-size: 4vh;
+    margin-top: 4.5vh;
+    margin-bottom: 1vh;
+}
+.user-profile p {
+    font-size: 2.5vh;
+    color: #999999;
+    margin-top: 1.8vh;
+}
+.user-profile-text {
+    margin-left: 8vw;
+}
+.user-text {
+    font-size: 2vh;
+    margin-left: 3vw;
+    margin-top: 1.5vh;
+}
+.user-edit-btn {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    border: solid 5px #e8e8e8;
+    text-align: center;
+    width: 90vw;
+    height: 4vh;
+    margin-top: 4vh;
+    margin-left: 5vw;
+    border-radius: 0.4em;
+    font-size: 3vh;
+    padding-top: 0.2vh;
+}
+.all-cut {
+    width: 100vw;
+    height: 3px;
+    background: #d0d0d0;
+    margin-top: 2vh;
+}
+//user.edit
+.fa-chevron-left-1 {
+    font-size: 4vh;
+    text-decoration: none;
+    color: #666666;
+}
+.user-edit-top {
+    font-size: 2.6vh;
+    text-align: center;
+    width: 90vw;
+    margin-top: 1.7vh;
+}
+.edit-top-parts {
+    display: inline-block;
+    vertical-align: middle;
+}
+.fa-user-plus-2 {
+    font-size: 4vh;
+    text-decoration: none;
+    color: #999999;
+    border: solid #999999;
+    border-radius: 50%;
+    height: 6vh;
+    width: 6.5vh;
+    padding-left: 2vh;
+    padding-top: 2vh;
+    margin-left: 6vw;
+    margin-top: 3vh;
+}
+.edit-profile {
+    display: inline-block;
+    vertical-align: top;
+}
+.edit-user-path {
+    font-size: 2.5vh;
+    margin-top: 3vh;
+    margin-left: 4vw;
+    margin-bottom: 1.5vh;
+}
+.edit-image-label{
+  cursor: pointer;
+  font-size: 2vh;
+  margin-left: 4vw;
+  margin-top: 0vh;
+  color: #00acff;
+}
+.edit-image-field {
+    display: none;
+}
+.edit-user-image {
+    background-size: cover;
+    border-radius: 50%;
+    height: 8vh;
+    width: 8.5vh;
+    margin-left: 6vw;
+    margin-top: 3vh;
+}
+.image-delete {
+    margin-left: 4vw;
+    margin-top: 1vh;
+    display: block;
+    font-size: 1.2vh;
+    text-decoration: none;
+    color:#ffffff;
+    background: #ff4646;
+    border-radius: 0.7em;
+    width: 30vw;
+    text-align: center;
+    padding-top: 0.3vh;
+    height: 1.6vh;
+}
+.edit-user {
+    display: block;
+}
+.edit-user-name-top {
+    font-size: 2.5vh;
+    margin-left: 12vw;
+    margin-top: 5vh;
+}
+.user-edit-name {
+    width: 75vw;
+    height: 5vh;
+    margin-left: 10vw;
+    margin-top: 1vh;
+    border: solid 2px #e8e8e8;
+    border-radius: 0.25em;
+    font-size: 3.5vh;
+    padding-left: 5vw;
+}
+.edit-user-text-top {
+    font-size: 2.5vh;
+    margin-left: 12vw;
+    margin-top: 5vh;
+}
+.user-edit-text {
+    width: 77vw;
+    height: 3vh;
+    margin-left: 10vw;
+    margin-top: 1vh;
+    border: solid 2px #e8e8e8;
+    border-radius: 0.5em;
+    font-size: 1.5vh;
+    padding-left: 3vw;
+    padding-bottom: 10vh;
+}
+.edit-send-btn {
+    width: 80vw;
+    margin-left: 10vw;
+    height: 5vh;
+    color: #ffffff;
+    background: #4b578f;
+    border-radius: 0.5em;
+    margin-top: 7vh;
+    font-size: 3.5vh;
+}

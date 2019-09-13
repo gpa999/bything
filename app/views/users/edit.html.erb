@@ -1,0 +1,44 @@
+<header id="header">
+  <a href=/users/<%= current_user.id %> class="fas fa-chevron-left fa-chevron-left-1 edit-top-parts"></a>
+  <h1 class="user-edit-top edit-top-parts">プロフィールを編集</h1>
+</header>
+<div id="contents">
+  <div class="space"></div>
+  <% if current_user.image.attached? %>
+    <div class="edit-profile edit-user-image" style="background-image: url(<%= rails_blob_path(current_user.image) %>) "></div>
+  <% else %>
+    <a href="/users/<%= current_user.id %>/edit" class="fas fa-user-plus fa-user-plus-2 edit-profile"></a>
+  <% end %>
+  <div class="edit-profile">
+  <p class="edit-user-path"><%= current_user.user_path %></p>
+  <%= form_for current_user do |f| %>
+    <%= f.label :image, "プロフィール写真を変更", class:"edit-image-label" %>
+    <%= f.file_field :image, class:"edit-image-field" %>
+  <% end %> 
+  <script type="text/javascript">
+    $('input[type=file]').on('change', function (e) {
+        console.log(e.target.files);
+        if (e.target.files[0].size > 0) {
+            $(this).parents('form').submit();
+        }
+    });
+  </script>
+  <%= link_to "プロフィール写真を削除", "/users/image/#{current_user.id}", method: :patch, class:"image-delete" %>
+  </div>
+  <%= form_for current_user do |f| %>
+    <%= f.label :name, "名前", class:"edit-user edit-user-name-top" %>
+    <%= f.text_field :name, class:"user-edit-name edit-user" %>
+    <%= f.label :text, "自己紹介", class:"edit-user edit-user-text-top" %>
+    <%= f.text_field :text, class:"user-edit-text edit-user" %>
+    <%= f.submit "送信", class:"edit-send-btn edit-user" %>
+  <% end %>  
+</div>
+<div id="footer">
+  <ul class="table-ul">
+　  <li><a href="/" class="fas fa-home fa-home-1"></a></li>
+　  <li><a href="/users" class="fas fa-search fa-search-1"></a></li>
+　  <li><a href="/" class="fas fa-plus-circle fa-plus-circle-1"></a></li>
+  　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
+  　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-2"></a></li>
+  </ul>　
+</div>
