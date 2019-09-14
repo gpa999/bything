@@ -5,10 +5,13 @@ class UsersController < ApplicationController
     end
     
     def index
+        @users = User.search(params[:search])
+        @all_users = User.all
     end
     
     def show
         @user = User.find(params[:id])
+        @evaluation = Evaluation.new
     end
     
     def edit 

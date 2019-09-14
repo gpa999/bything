@@ -1,0 +1,27 @@
+// Place all the styles related to the evaluations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//evaluations
+.value-form{
+    width: 8.5vw;
+    height: 3vh;
+    border-radius: 0.5em;
+    padding-left: 2.5vw;
+    font-size: 2vh;
+    outline: 0;
+}
+.value-btn {
+    height: 3vh;
+    width: 7vw;
+    border: solid 1px #000000;
+    border-radius: 0.5em;
+    background:#ffffff;
+    font-size: 1.5vh;
+    margin-left: 1vw;
+}
+.value-post {
+    display: inline-block;
+    vertical-align: top;
+    
+}

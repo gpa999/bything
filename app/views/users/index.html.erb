@@ -1,0 +1,34 @@
+<header id="header">
+  <h1 class="header-top"><%=@all_users.count %></h1>
+</header>
+<div id="contents">
+  <div class="space"></div>
+  <%= form_tag(users_path,:method => 'get') do %>
+    <%= text_field_tag :search,"",placeholder:"ユーザーパス検索",class:"search-field user-search" %>
+    <%= submit_tag '検索', :name => nil, class:"search-submit user-search" %>
+  <% end %>
+  <div class="user-index-contents">
+    <% @users.each do |user| %>
+      <div class="user-index-block">
+        <% if user.image.attached? %>
+          <div class="index-user-image index-user-real-image user-index-profile" style="background-image: url(<%= rails_blob_path(user.image) %>) "></div>
+        <% else %>
+          <div class="fas fa-user-plus fa-user-plus-3 index-user-image user-index-profile"></div>
+        <% end %>
+        <div class="user-index-profile index-profile">
+          <a href="/users/<%=user.id %>"><h3 class=""><%= user.name %></h3></a>
+          <p class=""><%= user.user_path %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div id="footer">
+  <ul class="table-ul">
+　  <li><a href="/" class="fas fa-home fa-home-1"></a></li>
+　  <li><a href="/users" class="fas fa-search fa-search-2"></a></li>
+　  <li><a href="/" class="fas fa-plus-circle fa-plus-circle-1"></a></li>
+  　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
+  　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-1"></a></li>
+  </ul>　
+</div>

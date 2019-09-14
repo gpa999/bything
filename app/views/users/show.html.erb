@@ -1,27 +1,66 @@
 <header id="header">
-  <h1 class="user-top"><%= @user.user_path %></h1>
+  <% if user_signed_in? %>
+    <% unless @user == current_user %>
+      <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="javascript:void(0);" onclick="window.history.back();"></a>
+    <% end %>
+  <% else %>
+    <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="javascript:void(0);" onclick="window.history.back();"></a>
+  <% end %>  
+    
+  <h1 class="user-top show-top-parts"><%= @user.user_path %></h1>
 </header>
 <div id="contents">
   <div class="space"></div>
-  <% if current_user.image.attached? %>
-    <div class="user-real-image user-image user-profile" style="background-image: url(<%= rails_blob_path(current_user.image) %>) "></div>
+  <% if @user.image.attached? %>
+    <div class="user-real-image user-image user-profile" style="background-image: url(<%= rails_blob_path(@user.image) %>) "></div>
   <% else %>
-    <a href="/users/<%= current_user.id %>/edit" class="fas fa-user-plus fa-user-plus-1 user-image user-profile"></a>
+    <a href="/users/<%= @user.id %>/edit" class="fas fa-user-plus fa-user-plus-1 user-image user-profile"></a>
   <% end %>  
   <div class="user-profile user-profile-text">
     <h1><%= @user.name %></h1>
     <p><%= @user.user_path %></p>
   </div>
   <p class="user-text"><%= @user.text %></p>
-  <%= link_to "プロフィールを編集", edit_user_path(current_user), class:"user-edit-btn" %>
+  <% if user_signed_in? %>
+    <% if @user == current_user %>
+      <%= link_to "プロフィールを編集", edit_user_path(current_user), class:"user-edit-btn" %>
+    <% else %>
+      <div class="value-parts"><%= render :partial =>"evaluations/evaluation_form", :locals => { user: @user, evaluation: @evaluation } %></div>
+    <% end %>
+  <% end %>
+  <div class="all-cut"></div>
+  <div class="value">
+    <p>信用度</p>
+    <p><%= @user.evaluate %></p>
+  </div>
   <div class="all-cut"></div>
 </div>
 <div id="footer">
-  <ul class="table-ul">
-　  <li><a href="/" class="fas fa-home fa-home-1"></a></li>
-　  <li><a href="/users" class="fas fa-search fa-search-1"></a></li>
-　  <li><a href="/" class="fas fa-plus-circle fa-plus-circle-1"></a></li>
-  　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
-  　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-2"></a></li>
-  </ul>　
+  <% if user_signed_in? %>
+    <% if @user == current_user %>
+      <ul class="table-ul">
+　      <li><a href="/" class="fas fa-home fa-home-1"></a></li>
+     　  <li><a href="/users" class="fas fa-search fa-search-1"></a></li>
+　      <li><a href="/" class="fas fa-plus-circle fa-plus-circle-1"></a></li>
+      　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
+      　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-2"></a></li>
+      </ul>　
+    <% else %>
+      <ul class="table-ul">
+　      <li><a href="/" class="fas fa-home fa-home-1"></a></li>
+     　  <li><a href="/users" class="fas fa-search fa-search-2"></a></li>
+　      <li><a href="/" class="fas fa-plus-circle fa-plus-circle-1"></a></li>
+      　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
+      　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-1"></a></li>
+      </ul>
+    <% end %>
+  <% else %> 
+      <ul class="table-ul">
+　      <li><a href="/" class="fas fa-home fa-home-1"></a></li>
+     　  <li><a href="/users" class="fas fa-search fa-search-2"></a></li>
+　      <li><a href="/" class="fas fa-plus-circle fa-plus-circle-1"></a></li>
+      　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
+      　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-1"></a></li>
+      </ul>
+  <% end %>    
 </div>

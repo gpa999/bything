@@ -20,9 +20,10 @@
     color: #ffffff;
     background: #4b578f;
     width: 78vw;
-    height: 4.5vh;
-    border-radius: 0.25em;
+    height: 4vh;
+    border-radius: 0.5em;
     font-size: 2.8vh;
+    padding-top: 1vh;
 }
 .signup-button {
     text-align: center;
@@ -36,6 +37,11 @@
     font-size: 2.5vh;
     margin-top: 2vh;
     color: #4b578f;
+    width: 90vw;
+}
+.show-top-parts {
+    display: inline-block;
+    vertical-align: middle;
 }
 .fa-user-plus-1 {
     padding-left: 3vh;
@@ -58,6 +64,17 @@
     height: 10.5vh;
     border-radius: 50%;
 }
+.value-parts {
+    margin-left: 75vw;
+    margin-top: 4vh;
+}
+.value {
+    font-size: 1.5vh;
+    width: 10vw;
+    margin-left: 10vw;
+    text-align: center;
+}
+
 .user-profile {
     display: inline-block;
     vertical-align: top;
@@ -214,4 +231,78 @@
     border-radius: 0.5em;
     margin-top: 7vh;
     font-size: 3.5vh;
+}
+//users/index
+
+.search-field {
+    width: 70vw;
+    height: 4vh;
+    border: solid 2px #e8e8e8;
+    border-radius: 0.5em;
+    font-size: 2vh;
+    margin-left: 5vw;
+    margin-top: 1vh;
+}
+
+.search-submit{
+    width: 15vw;
+    height: 4vh;
+    border-radius: 0.5em;
+    margin-left: 2Vh;
+    margin-top: 1.2vh;
+    background: #4b578f;
+    color: #ffffff;
+    font-size: 2vh;
+}
+.user-search {
+    vertical-align: top;
+    display: inline-block;
+}
+.index-user-image {
+    border-radius: 50%;
+    margin-left: 5vw;
+    margin-top: 1vh;
+}
+.user-index-contents {
+    margin-top: 3vh;
+}
+.index-user-real-image {
+    background-size: cover;
+    width: 7vh;
+    height: 6.8vh;
+}
+.user-index-profile {
+    display: inline-block;
+    vertical-align: top;
+}
+.index-profile {
+    margin-left: 4vw;
+}
+.index-profile h3 {
+    font-size: 2vh;
+    margin-bottom: 0.3vh;
+    display:block;
+    margin-top: 1.6vh;
+    color: #000000;
+}
+.index-profile a {
+    text-decoration: none;
+}
+.index-profile p {
+    font-size: 1.5vh;
+    display: block;
+    margin-top: 1.2vh;
+    color: #666666;
+}
+.fa-user-plus-3 {
+    border: solid 2px #999999;
+    width: 5.2vh;
+    height: 5.3vh;
+    padding-left: 1.8vh;
+    padding-top: 1.5vh;
+    font-size: 3.5vh;
+    color: #999999;
+}
+.user-index-block {
+    margin-top: 1.5vh;
 }

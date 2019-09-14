@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     root "top#index"
   end
   root "users#login_form"
-  resources :users
+  resources :users 
   patch   'users/image/:id'  => 'users#image_update'
+  resources :users do 
+    resources :evaluations, only: [:create, :update]
+  end
 end
