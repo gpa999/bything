@@ -117,6 +117,33 @@
     background: #d0d0d0;
     margin-top: 2vh;
 }
+.table-ul-show {
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    width: 100vw;
+    margin-left: -4vw;
+}
+.table-ul-show li {
+  display: table-cell;
+  vertical-align: middle;
+}
+.show-icone-1 {
+    color: #d0d0d0;
+    font-size: 4vh;
+    text-decoration: none;
+    margin-top: 1vh;
+}
+.show-icone-2 {
+    color: #6fb7ff;
+    font-size: 4vh;
+    text-decoration: none;
+    margin-top: 1vh;
+}
+.show-icone-table {
+    height: 6.5vh;
+    border-bottom: solid 3px #d0d0d0;
+}
 //user.edit
 .fa-chevron-left-1 {
     font-size: 4vh;

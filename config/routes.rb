@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :users do 
     resources :evaluations, only: [:create, :update]
   end
+  resources :users do 
+    resources :comments, only: [:create]
+  end
 end

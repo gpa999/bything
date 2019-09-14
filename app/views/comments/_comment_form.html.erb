@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <% unless current_user == user %>
+     <%= form_for [current_user,comment] do |f| %>
+       <%= hidden_field_tag :tell_id, user.id %>
+       <%= f.text_field :text, placeholder:"コメントを入力してください", class:"comment-field"%>
+       <%= f.submit "追加", class:"comment-btn" %>
+     <% end %>
+  <% end %>
+<% end %>

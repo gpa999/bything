@@ -12,14 +12,17 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @evaluation = Evaluation.new
+        @comment = Comment.new
+        @comments = @user.reverse_of_comments.order("created_at DESC")
     end
     
     def edit 
     end
     
     def update
-        User.update(update_params)
-        redirect_to user_path(current_user)
+        user = User.find(params[:id])
+        user.update(update_params)
+        redirect_to user_path(user)
     end
     
     def image_update
