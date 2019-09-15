@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   resources :users do 
     resources :comments, only: [:create]
   end
+  resources :users do 
+    resources :havethings, only: [:create, :index, :update, :show, :new]
+  end
 end

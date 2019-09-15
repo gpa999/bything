@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :tellings, through: :comments, source: :tell
   has_many :reverse_of_comments, class_name: 'Comment', foreign_key: 'tell_id'
   has_many :tellers, through: :reverse_of_comments, source: :user
+  has_many :havethings
          
   def self.search(search) #ここでのself.はUser.を意味する
       if search

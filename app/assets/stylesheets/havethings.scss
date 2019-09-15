@@ -1,0 +1,114 @@
+// Place all the styles related to the havethings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//havethings.new
+
+.havethings-icone-1 {
+    color: #6fb7ff;
+    font-size: 4vh;
+    text-decoration: none;
+    margin-top: 0.5vh;
+}
+.wantthings-icone-1 {
+    color: #d0d0d0;
+    font-size: 4vh;
+    text-decoration: none;
+    margin-top: 0.5vh;
+}
+.table-ul-things {
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    width: 100vw;
+    margin-left: -17vw;
+}
+.table-ul-things li {
+  display: table-cell;
+  vertical-align: middle;
+}
+.havething-image-form {
+    width: 40vw;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-left: 30vw;
+    margin-top: 0vh;
+    color: #6fb7ff;
+    border-bottom: solid 2px #6fb7ff;
+    text-align: center;
+}
+.havething-form {
+    display: block;
+    margin-top: 3vh;
+}
+.havething-name-form {
+    width: 80vw;
+    height: 5vh;
+    padding-left: 2vw;
+    border: solid 2px #d0d0d0;
+    border-radius: 0.5em;
+    font-size: 3vh;
+    margin-left: 9vw;
+}
+.havething-price-form {
+    width: 82vw;
+    height: 5vh;
+    border: solid 2px #d0d0d0;
+    border-radius: 0.5em;
+    font-size: 3vh;
+    margin-left: 9vw;
+}
+.havething-form-btn {
+    background: #4b578f;
+    text-align: center;
+    width: 60vw;
+    border-radius: 1em;
+    color: #ffffff;
+    margin-left: 20vw;
+    height: 4vh;
+    font-size: 2.5vh;
+}
+.all-cut-1 {
+    width: 100vw;
+    height: 3px;
+    background: #d0d0d0;
+    margin-top: 4vh;
+}
+.yourthing-top {
+    font-size: 5vh;
+    text-align: center;
+    font-family: 'Josef';
+    color: #4b578f;
+    margin-top: 0.2vh;
+}
+.yourthing-contents {
+    width: 95vw;
+    margin-left: 2.5vw;
+    
+}
+.yourthing-index {
+    margin-top: 2vh;
+    width: 25vw;
+    height: 20vh;
+    box-shadow: 2px 2px 4px #d0d0d0;
+    margin-left: 5vw;
+    display: inline-block;
+}
+.yourthing-index-image {
+    background-size: cover;
+    width: 25vw;
+    height: 3vh;
+    padding-top: 13vh;
+}
+.yourthing-index-price {
+    color: #ffffff;
+    font-size: 1.5vh;
+    background-color: rgba(169,169,169,0.5);
+    width: 14vw;
+    padding-left: 1vw;
+}
+.yourthing-index-name {
+    font-size: 1.5vh;
+    padding-left: 1vw;
+    width: 23vw;
+    height: 4vh;
+}

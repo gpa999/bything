@@ -1,0 +1,30 @@
+<header id="header">
+  <ul class="table-ul-things">
+　  <li><a href="/users/<%= current_user.id %>/havethings" class="fas fa-box havethings-icone-1"></a></li>
+　  <li><a href="/" class="fas fa-gift wantthings-icone-1"></a></li>
+  </ul>　
+</header>
+<div id="contents">
+  <div class="space"></div>
+  <%= form_for [current_user, @havething] do |f| %>
+    <%= f.text_field :name,placeholder:"商品名", class:"havething-form havething-name-form" %>
+    <%= f.number_field :price,placeholder:"￥およその価格", class:"havething-form havething-price-form" %>
+    <%= f.label :image, "商品写真を設定", class:"havething-image-form havething-form" %>
+    <%= f.file_field :image, style:"display:none;" %>
+    <%= f.submit "あなたの商品に登録", class:"havething-form havething-form-btn" %>
+  <% end %>  
+  <div class="all-cut-1"></div>
+  <h1 class="yourthing-top">Yourthings</h1> 
+  <div class="yourthing-contents">
+    <%= render partial: "havethings_index", collection: @havethings, as: :havething %>
+  </div>  
+</div>
+<div id="footer">
+  <ul class="table-ul">
+　  <li><a href="/" class="fas fa-home fa-home-1"></a></li>
+　  <li><a href="/users" class="fas fa-search fa-search-1"></a></li>
+　  <li><a href="/users/<%= current_user.id %>/havethings/new" class="fas fa-plus-circle fa-plus-circle-2"></a></li>
+  　<li><a href="/" class="fas fa-sync-alt fa-sync-alt-1"></a></li>
+  　<li><a href="/users/<%= current_user.id %>" class="fas fa-user fa-user-1"></a></li>
+  </ul>　
+</div>
