@@ -1,23 +1,21 @@
 <header id="header">
   <ul class="table-ul-things">
-　  <li><a href="/users/<%= current_user.id %>/havethings/new" class="fas fa-box havethings-icone-1"></a></li>
-　  <li><a href="/users/<%= current_user.id %>/wantthings/new" class="fas fa-gift wantthings-icone-1"></a></li>
+　  <li><a href="/users/<%= current_user.id %>/havethings/new" class="fas fa-box havethings-icone-2"></a></li>
+　  <li><a href="/users/<%= current_user.id %>/wantthings/new" class="fas fa-gift wantthings-icone-2"></a></li>
   </ul>　
 </header>
 <div id="contents">
   <div class="space"></div>
-  <%= form_for [current_user, @havething] do |f| %>
+  <%= form_for [current_user, @wantthing] do |f| %>
     <%= f.text_field :name,placeholder:"商品名", class:"havething-form havething-name-form" %>
-    <%= f.number_field :price,placeholder:"￥およその価格", class:"havething-form havething-price-form" %>
-    <%= f.text_area :search_word, placeholder:"検索ワード", class:"havething-form havething-search_word-form" %>
     <%= f.label :image, "商品写真を設定", class:"havething-image-form havething-form" %>
     <%= f.file_field :image, style:"display:none;" %>
-    <%= f.submit "あなたの商品に登録", class:"havething-form havething-form-btn" %>
-  <% end %>
+    <%= f.submit "あなたの欲しいものに登録", class:"havething-form havething-form-btn" %>
+  <% end %>  
   <div class="all-cut-1"></div>
-  <h1 class="yourthing-top">Yourthings</h1> 
+  <h1 class="yourthing-top">Youwant</h1> 
   <div class="yourthing-contents">
-    <%= render partial: "havethings_index", collection: @havethings, as: :havething %>
+    <%= render partial: "wantthings_index", collection: @wantthings, as: :wantthing %>
   </div>  
 </div>
 <div id="footer">

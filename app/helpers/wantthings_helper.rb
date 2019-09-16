@@ -1,0 +1,2 @@
+module WantthingsHelper
+end

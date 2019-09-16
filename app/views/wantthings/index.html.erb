@@ -36,32 +36,15 @@
   <div class="all-cut"></div>
   <div class="show-icone-table">
     <ul class="table-ul-show">
-      <li><a href="/users/<%= @user.id %>" class="fas fa-comments show-icone-2"></a></li>
+      <li><a href="/users/<%= @user.id %>" class="fas fa-comments show-icone-1"></a></li>
       <li><a href="/users/<%= @user.id %>/havethings" class="fas fa-box show-icone-1"></a></li>
-      <li><a href="/users/<%= @user.id %>/wantthings" class="fas fa-gift show-icone-1"></a></li>
+      <li><a href="/users/<%= @user.id %>/wantthings" class="fas fa-gift show-icone-2"></a></li>
       <li><a href="/" class="fas fa-receipt show-icone-1"></a></li>
     </ul>
   </div>
-  <% if user_signed_in? %>
-    <% unless @user == current_user %>
-      <div class="comment-parts"><%= render :partial =>"comments/comment_form", :locals => { user: @user, comment: @comment } %></div>
-    <% end %>
-  <% end %>
-  <div>
-    <% @comments.each do |comment| %>
-      <div class="user-comment-parts">
-        <% if comment.user.image.attached? %>
-          <div class="comment-contents comment-user-image comment-user-real-image" style="background-image: url(<%= rails_blob_path(comment.user.image) %>) "></div>
-        <% else %>
-          <i class="fas fa-user-plus fa-user-plus-4 comment-contents comment-user-image"></i>
-        <% end %> 
-        <div class="comment-contents">
-          <span class="comment-user-path"><%= comment.user.user_path %></span>
-          <div class="comment-user-name"><%= comment.text %></div>
-        </div>
-      </div>
-    <% end %>  
-  </div>
+  <div class="yourthing-contents">
+    <%= render partial: "wantthings_index", collection: @wantthings, as: :wantthing %>
+  </div> 
 </div>
 <div id="footer">
   <% if user_signed_in? %>

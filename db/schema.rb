@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_113205) do
+ActiveRecord::Schema.define(version: 2019_09_16_050337) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_113205) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "search_word"
     t.index ["user_id"], name: "index_havethings_on_user_id"
   end
 
@@ -78,10 +79,19 @@ ActiveRecord::Schema.define(version: 2019_09_15_113205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wantthings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wantthings_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "users", column: "tell_id"
   add_foreign_key "evaluations", "users"
   add_foreign_key "evaluations", "users", column: "rate_id"
   add_foreign_key "havethings", "users"
+  add_foreign_key "wantthings", "users"
 end
