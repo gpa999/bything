@@ -19,4 +19,16 @@ Rails.application.routes.draw do
   resources :users do 
     resources :wantthings, only: [:create, :index, :update, :show, :new, :destroy]
   end
+  
+  resources :users do 
+    resources :amounts, only: [:create, :update]
+  end
+  
+  resources :users do 
+    resources :messages, only: [:create, :new, :index, :update, :show]
+    member do
+      get 'send_messages'
+    end
+  end
+  
 end

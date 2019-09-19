@@ -1,13 +1,20 @@
 <header id="header">
   <% if user_signed_in? %>
-    <% unless @user == current_user %>
-      <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="javascript:void(0);" onclick="window.history.back();"></a>
+    <% if @user == current_user %>
+      <a href="/users/<%= current_user.id %>/send_messages" class="far fa-envelope fa-envelope-1 show-top-parts">
+        <% if @messages.present? %>
+          <div class="notice-number"><%= @messages.count %></div>
+        <% end %>    
+      </a>
+      <h1 class="user-top-1 show-top-parts"><%= @user.user_path %></h1>
+    <% else %>  
+      <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="/users"></a>
+      <h1 class="user-top show-top-parts"><%= @user.user_path %></h1>
     <% end %>
   <% else %>
-    <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="javascript:void(0);" onclick="window.history.back();"></a>
-  <% end %>  
-    
-  <h1 class="user-top show-top-parts"><%= @user.user_path %></h1>
+    <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="/users"></a>
+    <h1 class="user-top show-top-parts"><%= @user.user_path %></h1>
+  <% end %> 
 </header>
 <div id="contents">
   <div class="space"></div>
@@ -25,13 +32,42 @@
     <% if @user == current_user %>
       <%= link_to "プロフィールを編集", edit_user_path(current_user), class:"user-edit-btn" %>
     <% else %>
-      <div class="value-parts"><%= render :partial =>"evaluations/evaluation_form", :locals => { user: @user, evaluation: @evaluation } %></div>
+      <%= link_to "メッセージを送る", new_user_message_path(@user), class:"message-btn rate-contents" %>
+      <div class="value-parts rate-contents"><%= render :partial =>"evaluations/evaluation_form", :locals => { user: @user, evaluation: @evaluation } %></div>
     <% end %>
   <% end %>
   <div class="all-cut"></div>
+  <% if @total_evaluation > 0 %>
+    <% all_pt = 10000 * @user.evaluate / @total_evaluation %>
+  <% end %>
   <div class="value">
     <p>信用度</p>
     <p><%= @user.evaluate %></p>
+  </div>
+  <div class="value">
+    <p>総pt値</p>
+     <% if @user.reverse_of_evaluations.present? %>
+      <% if @user.evaluate > 0 %>
+        <p>¥<%= all_pt.floor %></p>
+      <% else %>
+        <p>¥0</p>
+      <% end %>
+    <% else %>
+      <p>¥0</p>
+    <% end %> 
+  </div>
+  <div class="value">
+    <p>1pt</p>
+    <% if @user.reverse_of_evaluations.present? && @user.amount.present? %>
+      <% if @user.evaluate > 0 %>
+        <% pt = all_pt / @user.amount.sheet %>
+        <p>¥<%= pt.floor %></p>
+      <% else %>
+        <p>¥0</p>
+      <% end %>
+    <% else %>
+      <p>¥0</p>
+    <% end %>  
   </div>
   <div class="all-cut"></div>
   <div class="show-icone-table">

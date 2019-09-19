@@ -1,15 +1,15 @@
 <% if user_signed_in? %>
   <% unless current_user == user %>
     <% if current_user.rating?(user) %>
-      <%= form_for [current_user,current_user.evaluations.find_by(rate_id:user.id)], html: {method: "patch"} do |f| %>
+      <%= form_for [current_user, current_user.evaluations.find_by(rate_id: user.id)], html: {method: "patch"} do |f| %>
         <%= hidden_field_tag :rate_id, user.id %>
-        <%= f.select :value, [["-1", "-1"], ["0", "0"], ["1", "1"]],{},{class:"value-form value-post"} %>
+        <%= f.select :value, [["1", "1"], ["0", "0"], ["-1", "-1"]],{},{class:"value-form value-post"} %>
         <%= f.submit "変更", class:"value-btn value-post" %>
       <% end %>
     <% else %>  
       <%= form_for [current_user,evaluation] do |f| %>
         <%= hidden_field_tag :rate_id, user.id %>
-        <%= f.select :value, [["-1", "-1"], ["0", "0"], ["1", "1"]],{ :selected=>0},{class:"value-form value-post"}%>
+        <%= f.select :value, [["1", "1"], ["0", "0"], ["-1", "-1"]],{:selected=>0},{class:"value-form value-post"} %>
         <%= f.submit "変更", class:"value-btn value-post" %>
       <% end %>
     <% end %>  

@@ -9,7 +9,8 @@ class EvaluationsController < ApplicationController
 
   def update
     user = User.find(params[:rate_id])
-    Evaluation.update(value: evaluation_params[:value], rate_id: user.id, user_id: current_user.id)
+    evaluation = Evaluation.find_by(rate_id: user.id, user_id: current_user.id)
+    evaluation.update(value: evaluation_params[:value])
     redirect_to user_path(user)
   end
 

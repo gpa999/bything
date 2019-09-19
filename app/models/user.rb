@@ -14,6 +14,11 @@ class User < ApplicationRecord
   has_many :tellers, through: :reverse_of_comments, source: :user
   has_many :havethings
   has_many :wantthings
+  has_one :amount
+  has_many :messages
+  has_many :talkings, through: :messages, source: :talk
+  has_many :reverse_of_messages, class_name: 'Message', foreign_key: 'talk_id'
+  has_many :talkers, through: :reverse_of_messages, source: :user
          
   def self.search(search) #ここでのself.はUser.を意味する
       if search

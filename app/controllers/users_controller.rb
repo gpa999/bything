@@ -13,7 +13,16 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @evaluation = Evaluation.new
         @comment = Comment.new
-        @comments = @user.reverse_of_comments.order("created_at DESC")
+        @comments = @user.reverse_of_comments.order("created_at DESC").includes(:user)
+        @amount = Amount.new
+        @total_evaluation = 0
+        @users = User.all
+        @users.each do |user|
+             if user.evaluate > 0
+                 @total_evaluation += user.evaluate
+             end
+        end
+        @messages = Message.where(talk_id: current_user.id, notification: 0).includes(:user)
     end
     
     def edit 
@@ -28,6 +37,10 @@ class UsersController < ApplicationController
     def image_update
         current_user.image.purge
         redirect_to edit_user_path(current_user)
+    end
+    
+    def send_messages
+        @messages = current_user.reverse_of_messages.order("created_at DESC").includes(:user)
     end
     
     private
