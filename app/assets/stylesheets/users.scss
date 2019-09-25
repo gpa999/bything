@@ -89,11 +89,18 @@
 .value {
     font-size: 1.5vh;
     width: 10vw;
-    margin-left: 10vw;
+    margin-left: 11vw;
     text-align: center;
     display: inline-block;
 }
-
+.have-value {
+    color: #ffffff;
+    display: block;
+    background:#4b578f;
+    text-decoration: none;
+    border-radius: 0.25em;
+    margin-bottom: 1.8vh;
+}
 .user-profile {
     display: inline-block;
     vertical-align: top;

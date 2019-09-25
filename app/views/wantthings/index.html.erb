@@ -14,7 +14,9 @@
   <% else %>
     <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="/users"></a>
     <h1 class="user-top show-top-parts"><%= @user.user_path %></h1>
-  <% end %> 
+  <% end %>  
+    
+  
 </header>
 <div id="contents">
   <div class="space"></div>
@@ -30,6 +32,7 @@
   <p class="user-text"><%= @user.text %></p>
   <% if user_signed_in? %>
     <% if @user == current_user %>
+      <div class="amount-parts"><%= render :partial =>"amounts/pt_amounts_form", :locals => { user: @user, amount: @amount } %></div>
       <%= link_to "プロフィールを編集", edit_user_path(current_user), class:"user-edit-btn" %>
     <% else %>
       <%= link_to "メッセージを送る", new_user_message_path(@user), class:"message-btn rate-contents" %>
@@ -46,28 +49,15 @@
   </div>
   <div class="value">
     <p>総pt値</p>
-     <% if @user.reverse_of_evaluations.present? %>
-      <% if @user.evaluate > 0 %>
-        <p>¥<%= all_pt.floor %></p>
-      <% else %>
-        <p>¥0</p>
-      <% end %>
-    <% else %>
-      <p>¥0</p>
-    <% end %> 
+     <p>¥<%= @user.all_point %></p>
   </div>
   <div class="value">
     <p>1pt</p>
-    <% if @user.reverse_of_evaluations.present? && @user.amount.present? %>
-      <% if @user.evaluate > 0 %>
-        <% pt = all_pt / @user.amount.sheet %>
-        <p>¥<%= pt.floor %></p>
-      <% else %>
-        <p>¥0</p>
-      <% end %>
-    <% else %>
-      <p>¥0</p>
-    <% end %>  
+    <p>¥<%= @user.one_point %></p>
+  </div>
+  <div class="value">
+    <a href="/users/<%= @user.id %>/points" class="have-value">所持pt</a>
+    <p>¥<%= @user.now_all_point %></p>
   </div>
   <div class="all-cut"></div>
   <div class="show-icone-table">
@@ -75,12 +65,13 @@
       <li><a href="/users/<%= @user.id %>" class="fas fa-comments show-icone-1"></a></li>
       <li><a href="/users/<%= @user.id %>/havethings" class="fas fa-box show-icone-1"></a></li>
       <li><a href="/users/<%= @user.id %>/wantthings" class="fas fa-gift show-icone-2"></a></li>
-      <li><a href="/" class="fas fa-receipt show-icone-1"></a></li>
+      <li><a href="/users/<%= @user.id %>/exchangepoints" class="fas fa-receipt show-icone-1"></a></li>
     </ul>
   </div>
   <div class="yourthing-contents">
     <%= render partial: "wantthings_index", collection: @wantthings, as: :wantthing %>
   </div> 
+  <div class="space"></div>
 </div>
 <div id="footer">
   <% if user_signed_in? %>

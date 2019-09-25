@@ -23,6 +23,7 @@ class UsersController < ApplicationController
              end
         end
         @messages = Message.where(talk_id: current_user.id, notification: 0).includes(:user)
+       
     end
     
     def edit 
@@ -43,9 +44,25 @@ class UsersController < ApplicationController
         @messages = current_user.reverse_of_messages.order("created_at DESC").includes(:user)
     end
     
+    def point_index
+        @user = User.find(params[:user_id])
+        @issuers = @user.have_people.all + @user.give_people.all
+    end
+    
+    def refuse_create
+        @point_confirmation = PointConfirmation.find(params[:con_id])
+        @message = Message.new(talk_id: message_params[:talk_id], kind: message_params[:kind],user_id: current_user.id )
+        @message.save && @point_confirmation.update(answered: 1)
+        redirect_to user_path(current_user)
+    end
+    
     private
     
     def update_params
         params.require(:user).permit(:image, :name, :text)
+    end
+    
+    def message_params
+        params.require(:message).permit(:talk_id, :kind)
     end
 end

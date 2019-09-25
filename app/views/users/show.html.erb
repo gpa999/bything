@@ -49,28 +49,15 @@
   </div>
   <div class="value">
     <p>総pt値</p>
-     <% if @user.reverse_of_evaluations.present? %>
-      <% if @user.evaluate > 0 %>
-        <p>¥<%= all_pt.floor %></p>
-      <% else %>
-        <p>¥0</p>
-      <% end %>
-    <% else %>
-      <p>¥0</p>
-    <% end %> 
+     <p>¥<%= @user.all_point %></p>
   </div>
   <div class="value">
     <p>1pt</p>
-    <% if @user.reverse_of_evaluations.present? && @user.amount.present? %>
-      <% if @user.evaluate > 0 %>
-        <% pt = all_pt / @user.amount.sheet %>
-        <p>¥<%= pt.floor %></p>
-      <% else %>
-        <p>¥0</p>
-      <% end %>
-    <% else %>
-      <p>¥0</p>
-    <% end %>  
+    <p>¥<%= @user.one_point %></p>
+  </div>
+  <div class="value">
+    <a href="/users/<%= @user.id %>/points" class="have-value">所持pt</a>
+    <p>¥<%= @user.now_all_point %></p>
   </div>
   <div class="all-cut"></div>
   <div class="show-icone-table">
@@ -78,7 +65,7 @@
       <li><a href="/users/<%= @user.id %>" class="fas fa-comments show-icone-2"></a></li>
       <li><a href="/users/<%= @user.id %>/havethings" class="fas fa-box show-icone-1"></a></li>
       <li><a href="/users/<%= @user.id %>/wantthings" class="fas fa-gift show-icone-1"></a></li>
-      <li><a href="/" class="fas fa-receipt show-icone-1"></a></li>
+      <li><a href="/users/<%= @user.id %>/exchangepoints" class="fas fa-receipt show-icone-1"></a></li>
     </ul>
   </div>
   <% if user_signed_in? %>
@@ -101,6 +88,7 @@
       </div>
     <% end %>  
   </div>
+  <div class="space"></div>
 </div>
 <div id="footer">
   <% if user_signed_in? %>
