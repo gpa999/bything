@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     
     def point_index
         @user = User.find(params[:user_id])
-        @issuers = @user.have_people.all + @user.give_people.all
+        @issuers = (@user.have_people.all + @user.give_people.all).sort_by {|i| @user.give_take_point(i) }.reverse!
     end
     
     def refuse_create
@@ -54,6 +54,11 @@ class UsersController < ApplicationController
         @message = Message.new(talk_id: message_params[:talk_id], kind: message_params[:kind],user_id: current_user.id )
         @message.save && @point_confirmation.update(answered: 1)
         redirect_to user_path(current_user)
+    end
+    def selled_points
+        @user = User.find(params[:user_id])
+        @nomalpoints = Nomalpoint.all
+        @exchangepoint = Exchangepoint.new
     end
     
     private

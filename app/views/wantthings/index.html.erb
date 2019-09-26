@@ -7,6 +7,7 @@
         <% end %>    
       </a>
       <h1 class="user-top-1 show-top-parts"><%= @user.user_path %></h1>
+      <a href="/users/<%= current_user.id %>/selled_points" class="fas fa-coins fa-coins-1 show-top-parts"></a>
     <% else %>  
       <a class="fas fa-chevron-left fa-chevron-left-1 show-top-parts" href="/users"></a>
       <h1 class="user-top show-top-parts"><%= @user.user_path %></h1>

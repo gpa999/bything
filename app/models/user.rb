@@ -20,9 +20,9 @@ class User < ApplicationRecord
   has_many :reverse_of_messages, class_name: 'Message', foreign_key: 'talk_id'
   has_many :talkers, through: :reverse_of_messages, source: :user
   has_many :nomalpoints
-  has_many :issue_person, through: :nomalpoints, source: :talk
+  has_many :issue_person, through: :nomalpoints, source: :issue
   has_many :reverse_of_nomalpoints, class_name: 'Nomalpoint', foreign_key: 'issue_id'
-  has_many :have_person, through: :reverse_of_nomalpoints, source: :user
+  has_many :gave_people, through: :reverse_of_nomalpoints, source: :user
   has_many :exchangepoints
   has_many :give_people, through: :exchangepoints, source: :give
   has_many :reverse_of_exchangepoints, class_name: 'Exchangepoint', foreign_key: 'give_id'
@@ -258,4 +258,5 @@ class User < ApplicationRecord
     end
     array.sum.floor
   end
+      
 end
